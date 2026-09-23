@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../assets/logo-scrap.png"
 import {
   Search,
   Database,
@@ -279,37 +279,46 @@ const Dashboard = () => {
 
         {/* LOGO */}
 
-        <div className="p-6 border-b border-slate-800">
+     <div className="p-6 border-b border-slate-800">
 
-          <div className="flex items-center gap-3">
+  <a
+    href="https://www.youtube.com/c/WebScraper/about"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-3"
+  >
 
-            <div
-              className="
-                w-10 h-10
-                bg-blue-600
-                rounded-xl
-                flex items-center justify-center
-                shrink-0
-              "
-            >
-              <Search size={22} />
-            </div>
+    <div
+      className="
+        w-10 h-10
+        rounded-xl
+        overflow-hidden
+        shrink-0
+        bg-slate-800
+      "
+    >
+      <img
+        src={logo}
+        alt="WebScraper"
+        className="w-full h-full object-cover"
+      />
+    </div>
 
-            <div className="min-w-0">
+    <div className="min-w-0">
 
-              <h1 className="font-bold text-lg">
-                WebScrape
-              </h1>
+      <h1 className="font-bold text-lg">
+        WebScrape
+      </h1>
 
-              <p className="text-xs text-slate-400">
-                Search Platform
-              </p>
+      <p className="text-xs text-slate-400">
+        Search Platform
+      </p>
 
-            </div>
+    </div>
 
-          </div>
+  </a>
 
-        </div>
+</div>
 
 
         {/* NAVIGATION */}
@@ -544,17 +553,21 @@ const Dashboard = () => {
 
             <div className="flex items-center gap-3 min-w-0">
 
-              <div
-                className="
-                  w-10 h-10
-                  bg-blue-600
-                  rounded-xl
-                  flex items-center justify-center
-                  shrink-0
-                "
-              >
-                <Search size={22} />
-              </div>
+             <div
+      className="
+        w-10 h-10
+        rounded-xl
+        overflow-hidden
+        shrink-0
+        bg-slate-800
+      "
+    >
+      <img
+        src={logo}
+        alt="WebScraper"
+        className="w-full h-full object-cover"
+      />
+    </div>
 
               <div className="min-w-0">
 
