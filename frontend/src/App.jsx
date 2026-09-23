@@ -8,6 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import ScrapedData from "./pages/ScrapedData";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SearchHistory from "./pages/SearchHistory";
+import SavedItems from "./pages/SavedItems";
+import Settings from "./pages/Settings";
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +32,22 @@ function App() {
             path="/register"
             element={<Register />}
           />
-
+<Route
+  path="/saved-items"
+  element={
+    <ProtectedRoute>
+      <SavedItems />
+    </ProtectedRoute>
+  }
+/>
+<Route
+  path="/settings"
+  element={
+    <ProtectedRoute>
+      <Settings />
+    </ProtectedRoute>
+  }
+/>
           <Route
             path="/dashboard"
             element={

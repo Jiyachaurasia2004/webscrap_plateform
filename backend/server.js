@@ -10,6 +10,7 @@ const scraperRoutes = require("./routes/scraperRoutes");
 const historyRoutes = require("./routes/historyRoutes");
 const exportRoutes = require("./routes/exportRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
+const savedRoutes = require("./routes/savedRoutes");
 dotenv.config();
 
 const app = express();
@@ -37,6 +38,7 @@ app.use("/api/scraper", scraperRoutes);
 app.use("/api/history", historyRoutes);
 app.use("/api/export", exportRoutes);
 app.use("/api/analytics", analyticsRoutes);
+app.use("/api/saved", savedRoutes);
 connectDB();
 
 const PORT = process.env.PORT || 5000;

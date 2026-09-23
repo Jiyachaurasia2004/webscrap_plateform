@@ -156,9 +156,73 @@ const getMe = async (req, res) => {
     });
   }
 };
+const updateProfile = async (req, res) => {
+  try {
+    const User = require("../models/User");
 
+    const { name } = req.body;
+
+    if (!name || typeof name !== "string") {
+      return res.status(400).json({
+        success: false,
+        message: "Name is required",
+      });
+    }
+
+    const cleanName = name.trim();
+
+    if (cleanName.length < 2) {
+      return res.status(400).json({
+        success: false,
+        message: "Name must contain at least 2 characters",
+      });
+    }
+
+    if (cleanName.length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: "Name is too long",
+      });
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.userId,
+      {
+        name: cleanName,
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    ).select("-password");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Profile updated successfully",
+      user,
+    });
+  } catch (error) {
+    console.error(
+      "Update Profile Error:",
+      error
+    );
+
+    return res.status(500).json({
+      success: false,
+      message: "Unable to update profile",
+    });
+  }
+};
 module.exports = {
   register,
   login,
   getMe,
+  updateProfile,
 };
